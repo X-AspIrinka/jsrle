@@ -6,8 +6,7 @@ inText = inText.toString();//получаем строку
 while (i < inText.length)//создаём цикл, который идет до конца текста
 {
     if (inText[i] == '#')//если символ #, декодируем
-    {    inText = inText.replace(inText.substring(i, i+3), inText[i + 2] * String.fromCharCode(inText[i + 1]));//заменяем код на подстроку
-        console.log(i, inText.substring(i, i+3), inText[i])
+    {    inText=inText.replace(inText.charAt(i+1),inText.charAt(i-1).repeat(Number(inText.charAt(i+1)-1)));//декодируем код
         i += String.fromCharCode(inText[i + 1]);//передвигаем указатель
     }
     else
